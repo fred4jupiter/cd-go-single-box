@@ -6,15 +6,13 @@ RUN apt-get upgrade -y --force-yes
 RUN apt-get install -y wget unzip dnsutils dos2unix
 
 # --- go server ---
-RUN wget -O /tmp/go-agent.deb http://download.go.cd/gocd-deb/go-server-14.3.0-1186.deb
-# COPY go-server-14.3.0-1186.deb /tmp/go-server.deb
+RUN wget -O /tmp/go-server.deb http://download.go.cd/gocd-deb/go-server-14.3.0-1186.deb
 
 RUN dpkg -i /tmp/go-server.deb
 RUN rm -f /tmp/go-server.deb
 
 # --- go agent ---
 RUN wget -O /tmp/go-agent.deb http://download.go.cd/gocd-deb/go-agent-14.3.0-1186.deb
-# COPY go-agent-14.3.0-1186.deb /tmp/go-agent.deb
 
 RUN dpkg -i /tmp/go-agent.deb
 RUN rm /tmp/go-agent.deb
